@@ -1,8 +1,6 @@
 // ConsoleApplication1.cpp : Defines the entry point for the console application.
 //
-
 #include "stdafx.h"
-
 
 #include <cmath>
 #include <iostream>
@@ -10,16 +8,13 @@
 #include <stdio.h>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Mouse.hpp>
 #include <SFML/Clock.hpp>
 using namespace std;
 
-/**
- * declare a new window
- */
 sf::RenderWindow *window;
 
-int cpuSel=0;
 /**
  * @brief render a window
  * @details creates a new window using sf::RenderWindow
@@ -27,8 +22,7 @@ int cpuSel=0;
  * @param w width
  * @param t height
  */
-void renderWindow()
-{
+void renderWindow(){
     window = new sf::RenderWindow(sf::VideoMode(1366, 768), "Electric Circuit");
 }
 
@@ -47,8 +41,7 @@ void delayTime(float f)
 /**
  * @brief events after window is rendered
  */
-int gameMain()
-{
+int gameMain(){
     //window->setMouseCursorVisible(true);
 
     /**
@@ -114,19 +107,29 @@ int gameMain()
     /**
      * @brief clear the window and draw the welcome screen sprite
      */
-    window->clear();
-    window->draw(spriteBack);
-    window->draw(spriteWelcome);
-    window->display();
+	float y = 0;
 
-    delayTime(3);
-
-    sf::Texture texSelect;
-    if (!texSelect.loadFromFile("rsc/select.png"))
-    {
-        return EXIT_FAILURE;
-    }
-    sf::Sprite spriteSel(texSelect);
+	clk.restart();
+	tme = clk.getElapsedTime();
+	while (tme.asSeconds() < 5)
+	{
+		window->clear();
+		window->draw(spriteBack);
+		sprite1.setPosition(150.0, y + 100.0);
+		sprite2.setPosition(600.0, y + 300.0);
+		sprite3.setPosition(1000.0, y + 400.0);
+		sprite4.setPosition(400.0, y + 600.0);
+		sprite5.setPosition(800.0, y + 700.0);
+		window->draw(sprite1);
+		window->draw(sprite2);
+		window->draw(sprite3);
+		window->draw(sprite4);
+		window->draw(sprite5);
+		window->draw(spriteWelcome);
+		window->display();
+		tme = clk.getElapsedTime();
+		y -= 0.1;
+	}
 
     sf::Texture texWire;
     if (!texWire.loadFromFile("rsc/wire.png"))
@@ -148,13 +151,20 @@ int gameMain()
         return EXIT_FAILURE;
     }
     sf::Sprite spriteBon(texBOn);
-    window->clear();
-    window->draw(spriteSel);
-    window->display();
+	
+	sf::Texture texSelect;
+	if (!texSelect.loadFromFile("rsc/select.png"))
+	{
+		return EXIT_FAILURE;
+	}
+	sf::Sprite spriteSel(texSelect);
+
+	window->clear();
+	window->draw(spriteSel);
+	window->display();
 
     while(window->isOpen())
     {
-        //cout<<"asd"<<endl;
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
             window->clear();
@@ -201,24 +211,9 @@ int gameMain()
     /**
      * @brief check while window is open
      */
-
-//    while (window->isOpen())
-//    {
-//        sf::Event event;
-//        while (window->pollEvent(event))
-//        {
-//            if (event.type == sf::Event::Closed)
-//            {
-//                window->close();
-//                break;
-//            }
-//        }
-//    }
 }
 
-int main(int, char const**)
-{
-	
+int main(int, char const**){	
 	renderWindow();
 	gameMain();
 }
