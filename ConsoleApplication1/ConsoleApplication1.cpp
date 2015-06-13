@@ -1,19 +1,7 @@
 // ConsoleApplication1.cpp : Defines the entry point for the console application.
 //
 #include "stdafx.h"
-
-#include <cmath>
-#include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Mouse.hpp>
-#include <SFML/Clock.hpp>
-using namespace std;
-
-sf::RenderWindow *window;
+#include "sub.cpp"
 
 /**
  * @brief render a window
