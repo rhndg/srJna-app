@@ -67,9 +67,9 @@ int showMenue(RenderWindow *window){
 		return EXIT_FAILURE;
 	}
 	Sprite spriteMenu(mainMenu);
-	Event evnt;
 	int choice = -1;
 	while (window->isOpen()){
+		Event evnt;
 		window->clear();
 		window->draw(spriteMenu);
 		window->display();
@@ -78,8 +78,29 @@ int showMenue(RenderWindow *window){
 			if (evnt.mouseButton.button == Mouse::Left){
 				int x = evnt.mouseButton.x, y = evnt.mouseButton.y;
 				//INDEX set choice to selected option
+				if ((x > 560 && x < 863) && (y>158 && y < 230)){
+					choice = 0;
+				}
+				else if ((x > 560 && x < 863) && (y>248 && y < 320)){
+					choice = 1;
+				}
+				else if ((x > 560 && x < 863) && (y>341 && y < 413)){
+					choice = 2;
+				}
+				else if ((x > 560 && x < 863) && (y>433 && y < 505)){
+					choice = 3;
+				}
+				else if ((x > 560 && x < 863) && (y>527 && y < 598)){
+					choice = 4;
+				}
 				//QUIT closewindow; exit
+				else if ((x > 560 && x < 863) && (y>628 && y < 700)){
+					window->close();
+				}
 			}
+		}
+		else if (evnt.type == Event::Closed){
+			window->close();
 		}
 	}
 	return choice;
