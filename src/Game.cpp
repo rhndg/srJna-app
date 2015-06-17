@@ -21,7 +21,6 @@ int Game::parse(string path){
 		int x, y;
 		inputFile >> imageSource;
 		paths.push_back("../data/" + imageSource);
-		//cout << imageSource << "loaded\n";
 		inputFile >> x >> y;
 		topLeft.push_back(pair<int, int>(x, y));
 		inputFile >> x >> y;
