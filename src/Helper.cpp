@@ -77,7 +77,6 @@ int showMenue(RenderWindow *window){
 		if (evnt.type == Event::MouseButtonReleased){
 			if (evnt.mouseButton.button == Mouse::Left){
 				int x = evnt.mouseButton.x, y = evnt.mouseButton.y;
-				//INDEX set choice to selected option
 				if ((x > 560 && x < 863) && (y>158 && y < 230)){
 					choice = 0;
 				}
@@ -93,15 +92,17 @@ int showMenue(RenderWindow *window){
 				else if ((x > 560 && x < 863) && (y>527 && y < 598)){
 					choice = 4;
 				}
-				//QUIT closewindow; exit
 				else if ((x > 560 && x < 863) && (y>628 && y < 700)){
 					window->close();
+					exit(0);
 				}
 			}
 		}
 		else if (evnt.type == Event::Closed){
 			window->close();
 		}
+		if (choice != -1)
+			break;
 	}
 	return choice;
 }

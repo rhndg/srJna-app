@@ -6,7 +6,7 @@ using namespace sf;
 int main(int argc,char** argv){
 	RenderWindow *window;
 	window = new RenderWindow(VideoMode(1366, 768), "srJna", Style::Fullscreen);
-	//window->setFramerateLimit(60);
+	window->setFramerateLimit(60);
 
 	showWelcome(window);
 	Game games[5];

@@ -6,13 +6,14 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
 class Game{
 private:
 	sf::RenderWindow *window;
-	vector <sf::Sprite> slides;
+	vector <string> paths;
 	vector <pair<int, int> > topLeft, botRight;
 	vector <int> isMCQ, Ans;
 public:
