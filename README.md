@@ -8,7 +8,10 @@ Each scheme governs the flow of the app in each section.
 There is a *.gme file for each subject.
 
 ##Structure of a *.gme file
-The file is a list of specifications each corresponding to a slide.
+The first two names are respectivly the
+* Normal background
+* MCQ background
+The rest of the file is a list of specifications each corresponding to a slide.
 * Name of file (background image file)
 * cordinates of the button to go to the next slide
 * 1 if it is an mcq, 0 otherwise
