@@ -9,7 +9,7 @@ There is a *.gme file for each subject.
 
 ##Structure of a *.gme file
 The file is a list of specifications each corresponding to a slide.
---Name of file (background image file)
---cordinates of the button to go to the next slide
---1 if it is an mcq, 0 otherwise
---(1-4) the correct answere if it is an mcq
+*Name of file (background image file)
+*cordinates of the button to go to the next slide
+*1 if it is an mcq, 0 otherwise
+*(1-4) the correct answere if it is an mcq
