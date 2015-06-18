@@ -1,6 +1,47 @@
 material_back.png
-0 0 100 100
-0 5
 mcq.png
+electricity.png
+180 30 1290 560
+0 0
+boff.png
+800 450 870 520
+0 0
+bon.png
+180 30 1290 560
+0 0
+parallel1.png
+113 145 176 307
+0 0
+series2.png
+117 361 170 524
+0 0
+series3.png
+180 30 1290 560
+0 0
+parallel1.png
+113 145 176 307
+0 0
+parallel2.png
+117 361 170 524
+0 0
+parallel3.png
+180 30 1290 560
+0 0
+mcq1.png
 0 0 0 0
-1 2
+1 1
+mcq2.png
+0 0 0 0
+1 1
+mcq3.png
+0 0 0 0
+1 1
+mcq4.png
+0 0 0 0
+1 1
+mcq5.png
+0 0 0 0
+1 1
+mcq6.png
+0 0 0 0
+1 1

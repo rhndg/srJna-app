@@ -12,15 +12,19 @@ using namespace std;
 
 class Game{
 private:
+	string back, mcq;
 	sf::RenderWindow *window;
+	sf::Clock clk;
+	sf::Time tme;
 	vector <string> paths;
 	vector <pair<int, int> > topLeft, botRight;
 	vector <int> isMCQ, Ans;
+	int parse(string path);
+	void delayTime(float f);
 public:
 	Game();
 	Game(string path, sf::RenderWindow *wndw);
 	~Game();
-	int parse(string path);
 	void start();
 };
 

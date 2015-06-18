@@ -62,6 +62,8 @@ int showWelcome(RenderWindow *window){
 }
 
 int showMenue(RenderWindow *window){
+	sf::Event evnt;
+	while (window->pollEvent(evnt)){}
 	Texture mainMenu;
 	if (!mainMenu.loadFromFile("../data/select.png")){
 		return EXIT_FAILURE;
@@ -100,6 +102,7 @@ int showMenue(RenderWindow *window){
 		}
 		else if (evnt.type == Event::Closed){
 			window->close();
+			exit(0);
 		}
 		if (choice != -1)
 			break;
