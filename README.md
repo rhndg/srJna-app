@@ -16,3 +16,6 @@ The rest of the file is a list of specifications each corresponding to a slide.
 * cordinates of the button to go to the next slide
 * 1 if it is an mcq, 0 otherwise
 * (1-4) the correct answer if it is an mcq
+
+#Logger
+The app logs how much time (in seconds) the student spent on each question and the score of the student in the log folder.
