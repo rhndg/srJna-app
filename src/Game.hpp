@@ -16,6 +16,8 @@ private:
 	sf::RenderWindow *window;
 	sf::Clock clk;
 	sf::Time tme;
+	string Heading;
+	int qNum;
 	vector <string> paths;
 	vector <pair<int, int> > topLeft, botRight;
 	vector <int> isMCQ, Ans;
@@ -23,7 +25,7 @@ private:
 	void delayTime(float f);
 public:
 	Game();
-	Game(string path, sf::RenderWindow *wndw);
+	Game(string heading, string path, sf::RenderWindow *wndw);
 	~Game();
 	void start();
 };

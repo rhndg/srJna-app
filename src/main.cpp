@@ -10,11 +10,11 @@ int main(int argc,char** argv){
 
 	showWelcome(window);
 	Game games[5];
-	games[0] = Game("../schemes/Electricity.gme", window);
-	games[1] = Game("../schemes/ForceAndWork.gme", window);
-	games[2] = Game("../schemes/Optics.gme", window);
-	games[3] = Game("../schemes/Biology.gme", window);
-	games[4] = Game("../schemes/Maths.gme", window);
+	games[0] = Game("Electricity","../schemes/Electricity.gme", window);
+	games[1] = Game("ForceAndWork", "../schemes/ForceAndWork.gme", window);
+	games[2] = Game("Optics", "../schemes/Optics.gme", window);
+	games[3] = Game("Biology", "../schemes/Biology.gme", window);
+	games[4] = Game("Maths", "../schemes/Maths.gme", window);
 
 	while (true){
 		games[showMenue(window)].start();

@@ -8,9 +8,11 @@ Game::~Game(){
 
 }
 
-Game::Game(string path, sf::RenderWindow *wndw){
+Game::Game(string heading, string path, sf::RenderWindow *wndw){
 	tme = clk.getElapsedTime();
 	window = wndw;
+	Heading = heading;
+	qNum = 1;
 	parse(path);
 }
 
@@ -44,8 +46,10 @@ void Game::delayTime(float f)
 }
 
 void Game::start(){
-
+	ofstream outFile;
+	outFile.open(("../log/"+Heading + ".txt").c_str());
 	int state = 0, score = 0;
+	bool isFirst = true;
 	sf::Event evnt;
 	sf::Texture backTex, mcqTex;
 	backTex.loadFromFile("../data/" + back);
@@ -108,7 +112,10 @@ void Game::start(){
 					window->draw(sprt);
 				}
 				window->display();
-				
+				if (isFirst){
+					isFirst = false;
+					clk.restart();
+				}
 				if (window->pollEvent(evnt)){
 					if (evnt.type == sf::Event::MouseButtonReleased){
 						if (evnt.mouseButton.button == sf::Mouse::Left){
@@ -134,6 +141,10 @@ void Game::start(){
 							if ((x > 1188 && x < 1335) && (y > 644 && y < 705)){
 								if (Ans[state] == choice)
 									score++;
+								isFirst = true;
+								tme = clk.getElapsedTime();
+								outFile<<"Q "<<qNum<<" - "<<tme.asSeconds()<<endl<<"selected option - "<<choice<<endl<<"correct option - "<<Ans[state]<<endl;
+								qNum++;
 								state++;
 								break;
 							}
@@ -142,10 +153,11 @@ void Game::start(){
 				}
 			}
 		}
-		delayTime(0.1);
-		while (window->pollEvent(evnt)){}
-
 		if (state<0)
 			break;
 	}
+	qNum = 1;
+	outFile << "Score - " << score << endl;
+	outFile.close();
+	//delayTime(5);
 }
